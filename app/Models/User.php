@@ -13,8 +13,11 @@ use ApiPlatform\Laravel\Eloquent\Filter\PartialSearchFilter;
 use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\Laravel\Eloquent\Filter\OrderFilter;
 use ApiPlatform\Metadata\ApiProperty;
+use App\Http\Requests\CreateUserRequest;
 
-#[ApiResource]
+#[ApiResource(
+        rules: CreateUserRequest::class
+)]
 #[QueryParameter(key: 'country_id', filter: PartialSearchFilter::class)]
 #[QueryParameter(key: 'id', filter: OrderFilter::class)]
 #[QueryParameter(key: 'name', filter: OrderFilter::class)]
