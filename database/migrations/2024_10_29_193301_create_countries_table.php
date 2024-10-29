@@ -4,6 +4,8 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+use function Laravel\Prompts\table;
+
 return new class extends Migration
 {
     /**
@@ -13,7 +15,22 @@ return new class extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('official_name');
+            $table->string('currencies_name');
+            $table->string('currencies_symbol', 3);
+            $table->string('code', 3)->unique();
+            $table->string('languages');
+            $table->string('google_maps')->nullable();
+            $table->string('open_street_maps')->nullable();
+            $table->string('timezones')->nullable();
+            $table->string('flag_svg')->nullable();
             $table->timestamps();
+        });
+        // Add User Country Relation
+        Schema::table('users', function (Blueprint $table) {
+            $table->unsignedBigInteger('country_id')->nullable()->after('id');
+            $table->foreign('country_id')->references('id')->on('countries')->onDelete('set null');
         });
     }
 
