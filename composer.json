@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "api-platform/graphql": "^4.0",
+        "api-platform/laravel": "^4.0",
         "guzzlehttp/guzzle": "^7.9",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",

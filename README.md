@@ -15,6 +15,16 @@
 - دریافت لیست کشور ها و یا ارزها از طریق
 [API](https://restcountries.com/)
 
+### Swagger Link
+Disable use env APP Debug Mode
+```
+api/
+```
+### Graphql Link
+```
+api/graphql
+```
+
 
 ## License
 
