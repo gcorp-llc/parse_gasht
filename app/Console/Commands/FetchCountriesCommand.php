@@ -3,6 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use App\Jobs\FetchAndStoreCountries;
+
 
 class FetchCountriesCommand extends Command
 {
@@ -11,20 +13,20 @@ class FetchCountriesCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'app:fetch-countries-command';
+    protected $signature = 'fetch:countries';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'fetch country Api To Database';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        //
+        FetchAndStoreCountries::dispatch();
     }
 }

@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('official_name');
-            $table->string('currencies_name');
-            $table->string('currencies_symbol', 3);
-            $table->string('code', 3)->unique();
+            $table->string('currencies_name')->nullable();
+            $table->string('currencies_symbol', 10)->nullable();
+            $table->string('region');
             $table->string('languages');
             $table->string('google_maps')->nullable();
             $table->string('open_street_maps')->nullable();
