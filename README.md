@@ -25,6 +25,10 @@ api/
 api/graphql
 ```
 
+### Admin Panel 
+Go to  [Admin Link](http://127.0.0.1:8000/master/)
+- username : admin@admin.co
+- password : 123456789
 
 ## License
 
