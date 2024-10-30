@@ -13,11 +13,15 @@ use ApiPlatform\Laravel\Eloquent\Filter\PartialSearchFilter;
 use ApiPlatform\Metadata\QueryParameter;
 use ApiPlatform\Laravel\Eloquent\Filter\OrderFilter;
 use ApiPlatform\Metadata\ApiProperty;
+use ApiPlatform\Metadata\Delete;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 use App\Http\Requests\CreateUserRequest;
+use ApiPlatform\Metadata\Patch;
+use ApiPlatform\Metadata\Post;
+use App\Policies\UserPolicy;
 
-#[ApiResource(
-        rules: CreateUserRequest::class
-)]
+#[ApiResource]
 #[QueryParameter(key: 'country_id', filter: PartialSearchFilter::class)]
 #[QueryParameter(key: 'id', filter: OrderFilter::class)]
 #[QueryParameter(key: 'name', filter: OrderFilter::class)]
@@ -25,7 +29,6 @@ class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
-    #[ApiProperty(push: false)]
    protected $with=['country'];
 
     /**
@@ -37,6 +40,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'country_id'
     ];
 
 

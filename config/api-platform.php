@@ -15,7 +15,6 @@ return [
     ],
 
     'resources' => [
-        app_path('ApiResource'),
         app_path('Models'),
     ],
 

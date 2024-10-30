@@ -28,6 +28,7 @@ class MasterPanelProvider extends PanelProvider
             ->id('master')
             ->path('master')
             ->login()
+            ->spa()
             ->colors([
                 'primary' => Color::Amber,
             ])
